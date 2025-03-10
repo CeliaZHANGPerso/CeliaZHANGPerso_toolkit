@@ -1,0 +1,63 @@
+[project]
+name = "celiazhangperso-toolkit"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Celia ZHANG",email = "celiazhang349@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "click (>=8.1.8,<9.0.0)"
+]
+
+[tool.poetry]
+packages = [{include = "celiazhangperso_toolkit", from = "src"}]
+
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^4.1.0"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+hello = "celiazhangperso_toolkit.cli:hello"
+
+[tool.ruff]
+target-version = "310" # Python version (examples: 39 for 3.9, 310 for 3.10, etc.)
+line-length = 120 # Maximum line-length for formatting
+exclude = [ # Scripts or folders to exclude from linting/formatting
+    "path/to/folder", # ignore whole folder
+    "path/to/folder/*.md", # ignore all markdown files in folder
+    "path/to/script.py", # ignore specific file
+    "bin",
+    "guidelines",
+    "notebooks",
+    "tests",
+    "validation_tests"
+    ]
+
+[tool.ruff.lint]
+ignore = [ # Rules to ignore. In this example these are all docstring (D) related rules.
+    "D100", # Missing docstring
+    "D205", # 1 blank line required between summary qnd description
+    "D415", # First line should end with a period, question mark or exclamation point.
+    "S113",
+    "N803",
+    "N806"
+]
+select = [ # Sets of rules to check for
+    "I",    # isort
+    "S",    # bandit
+    "E",    # pycodestyle
+    "N",    # pep8-naming
+    "F",    # flake8
+    "T20",
+    "ANN",
+    "ARG"
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google" # The type of docstring style to follow. Will be elaborated on in the module about docstrings.
