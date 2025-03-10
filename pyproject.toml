@@ -26,7 +26,7 @@ build-backend = "poetry.core.masonry.api"
 hello = "celiazhangperso_toolkit.cli:hello"
 
 [tool.ruff]
-target-version = "310" # Python version (examples: 39 for 3.9, 310 for 3.10, etc.)
+target-version = "py310" # Python version (examples: 39 for 3.9, 310 for 3.10, etc.)
 line-length = 120 # Maximum line-length for formatting
 exclude = [ # Scripts or folders to exclude from linting/formatting
     "path/to/folder", # ignore whole folder
@@ -36,7 +36,8 @@ exclude = [ # Scripts or folders to exclude from linting/formatting
     "guidelines",
     "notebooks",
     "tests",
-    "validation_tests"
+    "validation_tests",
+    "*.toml"
     ]
 
 [tool.ruff.lint]
@@ -59,5 +60,3 @@ select = [ # Sets of rules to check for
     "ARG"
 ]
 
-[tool.ruff.lint.pydocstyle]
-convention = "google" # The type of docstring style to follow. Will be elaborated on in the module about docstrings.

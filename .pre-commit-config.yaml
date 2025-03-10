@@ -7,7 +7,7 @@ repos:
     # Apply Ruff linting fixes.
     - id: ruff
       name: ruff fix # We can add arbitrary names to our hooks
-      args: [ --fix ]
+      args: [ --output-format, concise, --unsafe-fixes ] # Makes the ruff check output more legible.
       types_or: [ python, pyi ] # Only scan .py files (and not jupyter notebooks)
 
     # Run the formatter.
@@ -18,5 +18,12 @@ repos:
     # Run the linter one last time to check for remaining issues.
     - id: ruff
       name: ruff check
-      args: [ --output-format concise ] # Makes the ruff check output more legible.
+      args: [ --output-format, concise ] # Makes the ruff check output more legible.
+
       types_or: [ python, pyi ] # Only scan .py files (and not jupyter notebooks)
+
+- repo: https://github.com/srstevenson/nb-clean
+  rev: 4.0.1
+  hooks:
+    - id: nb-clean
+
